@@ -1,0 +1,21 @@
+<!-- Loop over each object in the projects array -->
+<div class="body-heading mb-5">
+  <h1>Tech Blog</h1>
+</div>
+<div class="container container-fluid">
+{{#each blogs as |blog| }}
+<div class="card mb-4">
+  <div class="card-header">
+    <h4>
+      <a href="/blog/{{blog.id}}">{{blog.name}}</a>
+    </h4>
+    <p>Posted by {{blog.user.username}}</p>
+  </div>
+  <div class="card-body">
+    <p>
+      {{blog.text}}
+    </p>
+  </div>
+</div>
+{{/each}}
+</div>
