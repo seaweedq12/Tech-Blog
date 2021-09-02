@@ -1,0 +1,17 @@
+<div class="body-heading mb-5">
+  <h1>DashBoard</h1>
+</div>
+<div class="container container-fluid">
+{{#if user.blogs.length}}
+{{#each user.blogs as |blog| }}
+<div class="card mb-4 list">
+  <h4>
+    <a href="/editblog/{{blog.id}}">{{blog.name}}</a>
+  </h4>
+</div>
+{{/each}}
+{{/if}}
+  <h6>
+    <a href="/createblog"> Create new blog</a>
+  </h6>
+</div>

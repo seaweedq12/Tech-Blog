@@ -14,8 +14,12 @@
     <header class="display-flex justify-space-between align-center p-2">
       <nav>
         <!-- Conditionally render login or logout links -->
-        <a href="/">Home</a> 
-        <a href="/dashboard">Dashboard</a> 
+        <a href="/">Home</a>
+        {{#if logged_in}}
+        <a href="/dashboard/{{user_id}}">Dashboard</a> 
+        {{else}}
+        <a href="/login">Dashboard</a>
+        {{/if}}
         {{#if logged_in}}
         <a id= "logout" href="/">Logout</a>
         {{else}}
