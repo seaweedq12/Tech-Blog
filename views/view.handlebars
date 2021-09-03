@@ -1,0 +1,38 @@
+<div class="body-heading mb-5">
+  <h1>Tech Blog</h1>
+</div>
+<div class="container container-fluid">
+  <div class="card mb-4 blog" id={{id}}>
+    <div class="card-header">
+      <h4>
+        {{name}}
+      </h4>
+      <p>Posted by {{user.username}}</p>
+    </div>
+    <div class="card-body">
+      <p>{{text}}</p>
+    </div>
+  </div>
+  <div class="card mb-4">
+    <div class="card-header">
+        <h4>
+          Comments
+        </h4>
+        {{#if logged_in}}
+        <button class="btn btn-primary" type="button" id="add">Add new comment</button>
+        {{/if}}
+    </div>
+  <div class="comment_area">
+  {{#if comments.length}}
+  {{#each comments as |comment|}}
+  <div class="com">
+      <p>{{comment.text}}</p>
+      <br>
+      <p class="smaller">-{{comment.user.username}} on {{comment.date}}</p>
+  </div>
+  {{/each}}
+  {{/if}}
+  </div>
+  </div>
+</div>
+<script src="/js/comment.js"></script>

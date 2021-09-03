@@ -1,11 +1,15 @@
 const router = require('express').Router();
 const { Blog } = require('../../models');
 const withAuth = require('../../utils/auth');
+const getdate = require('../../utils/date');
+
+const date = getdate();
 
 router.post('/', withAuth, async (req, res) => {
   try {
     const newBlog = await Blog.create({
       ...req.body,
+      date: date,
       user_id: req.session.user_id,
     });
 
@@ -17,7 +21,11 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    const updateBlog = await Blog.update(req.body, {
+    const updateBlog = await Blog.update({
+        ...req.body,
+        date: date,
+      },
+      {
       where: {
         id: req.params.id,
       },

@@ -1,12 +1,20 @@
 [
   {
-    "name": "Music Near Me",
-    "text": "A mobile app that will send you notifications whenever a concert is playing in your area.",
+    "name": "why MVC is important",
+    "date": "3/9/21",
+    "text": "MCV allows developers to maintain a true separation of concerns, devising their code between the model layer for data, the View layer for design, and the Controller layer for application logic.",
     "user_id": 1
   },
   {
-    "name": "The Ultimate Tech Quiz",
-    "text": "A web app that will give users 10 new technical questions each day and track their progress in things like programming, cybersecurity, database architecture, and more!",
+    "name": "Authentication vs. Authorization",
+    "date": "3/9/21",
+    "text": "There is a differnce between authentication and authorization. Authentication means confirming your own identity, whereas authorization means being allowed access to the system",
     "user_id": 1
+  },
+  {
+    "name": "Object-Relational Mapping",
+    "date": "3/9/21",
+    "text": "I have really loved learning about ORMs. it's really simplified the way i create queries in SQL",
+    "user_id": 2
   }
 ]

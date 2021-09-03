@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Blog , User } = require('../models');
+const { Blog , User, Comments } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -51,13 +51,13 @@ router.get('/dashboard/:id', withAuth , async (req, res) => {
           attributes: [
             'id',
             'name',
+            'date',
           ],
         },
       ],
     });
 
     const user = userData.get({ plain: true });
-    console.log(user);
     res.render('dashboard', { 
       user, 
       logged_in: req.session.logged_in,
@@ -83,6 +83,43 @@ router.get('/editblog/:id', withAuth , async (req, res) => {
     
     res.render('edit', { 
       ...blog , 
+      logged_in: req.session.logged_in,
+      user_id: req.session.user_id,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/viewblog/:id', async (req, res) => {
+  try {
+    const blogData = await Blog.findByPk(req.params.id,{
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+    });
+
+    const commentData = await Comments.findAll({
+      where :{
+        blog_id : req.params.id
+      },
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
+    });
+
+
+    const blog = blogData.get({ plain: true });
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
+    res.render('view', { 
+      ...blog ,
+      comments, 
       logged_in: req.session.logged_in,
       user_id: req.session.user_id,
     });

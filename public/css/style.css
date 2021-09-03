@@ -36,6 +36,8 @@ a{
   color: var(--light) ;
 }
 
+
+
 .body-heading{
   background-color: var(--blue);
   color: var(--light);
@@ -61,7 +63,20 @@ a{
   justify-content: space-between;
 }
 .list{
+  display: flex;
   background-color: var(--blue);
+  justify-content: space-between;
+}
+.list > p{
+  color: var(--light);
+}
+
+.com{
+  border-top:5px solid var(--blue) !important;
+}
+
+.smaller{
+  font-size: 80%;
 }
 
 

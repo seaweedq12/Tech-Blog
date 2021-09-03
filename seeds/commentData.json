@@ -1,0 +1,21 @@
+[
+  {
+    
+    "text": "thank you for the tips.",
+    "date": "3/9/21",
+    "blog_id": 1,
+    "user_id": 1
+  },
+  {
+    "text": "i learned alot from this blog.",
+    "date": "3/9/21",
+    "blog_id": 1,
+    "user_id": 2
+  },
+  {
+    "text": "A web app that will give users.",
+    "date": "3/9/21",
+    "blog_id": 2,
+    "user_id": 2
+  }
+]
